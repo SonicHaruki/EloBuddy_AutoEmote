@@ -31,7 +31,7 @@ namespace Mastery_Emotion
 
         private static void Game_OnNotify(GameNotifyEventArgs args)
         {
-            if (args.EventId.Equals(GameEventId.OnChampionKill) && MasteryEmote["OnKill"].Cast<CheckBox>().CurrentValue)
+        	if (args.EventId.Equals(GameEventId.OnChampionKill) && MasteryEmote["OnKill"].Cast<CheckBox>().CurrentValue) && ObjectManager.GetUnitByNetworkId<AIHeroClient>(args.NetworkId).IsMe)
             {
                 Chat.Say("/masterybadge");
             }
